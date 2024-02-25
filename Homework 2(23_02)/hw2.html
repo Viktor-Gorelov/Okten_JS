@@ -203,7 +203,7 @@
   // потрапляє це число (у першу, другу чи третю).
   console.log("Task 7");
   let day = 30
-  if(day <= 10){
+  if(day > 0 && day <= 10){
       console.log("Перша декада місяця")
   }
   if(day <= 20 && day > 10){
@@ -238,6 +238,9 @@
           break;
       case 7:
           console.log("Sunday");
+          break;
+      default:
+          console.log("Write day of week");
           break;
   }
 
