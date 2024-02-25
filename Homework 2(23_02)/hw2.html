@@ -24,9 +24,16 @@
           8,
           true,
           false]
-  for (let i = 0; i < arr.length; i++){
-    console.log(arr[i])
-  }
+  console.log(arr[0]);
+  console.log(arr[1]);
+  console.log(arr[2]);
+  console.log(arr[3]);
+  console.log(arr[4]);
+  console.log(arr[5]);
+  console.log(arr[6]);
+  console.log(arr[7]);
+  console.log(arr[8]);
+  console.log(arr[9]);
 
   //- Створити 3 об'єкти які описують книги. Поля об'єкту : title ,pageCount, genre.
   let book = {
@@ -79,18 +86,66 @@
   // Вивести в консоль пароль кожного користувача
   console.log("Task 4");
   let arrUser = [];
-  const userCount = 10;
-  for (let i = 0; i < userCount; i++){
-    arrUser[i] = {
-        name: "Bob" + i,
-        username: "Burns" + i,
-        password: "123Bob" + i
-    };
-  }
-
-  for (const user of arrUser){
-      console.log("Пароль користувача "+ user.username + ": " + user.password);
-  }
+  arrUser[0] = {
+      name: "Bob" + 1,
+      username: "Burns" + 1,
+      password: "123Bob" + 1
+  };
+  arrUser[1] = {
+      name: "Bob" + 2,
+      username: "Burns" + 2,
+      password: "123Bob" + 2
+  };
+  arrUser[2] = {
+      name: "Bob" + 3,
+      username: "Burns" + 3,
+      password: "123Bob" + 3
+  };
+  arrUser[3] = {
+      name: "Bob" + 4,
+      username: "Burns" + 4,
+      password: "123Bob" + 4
+  };
+  arrUser[4] = {
+      name: "Bob" + 5,
+      username: "Burns" + 5,
+      password: "123Bob" + 5
+  };
+  arrUser[5] = {
+      name: "Bob" + 6,
+      username: "Burns" + 6,
+      password: "123Bob" + 6
+  };
+  arrUser[6] = {
+      name: "Bob" + 7,
+      username: "Burns" + 7,
+      password: "123Bob" + 7
+  };
+  arrUser[7] = {
+      name: "Bob" + 8,
+      username: "Burns" + 8,
+      password: "123Bob" + 8
+  };
+  arrUser[8] = {
+      name: "Bob" + 9,
+      username: "Burns" + 9,
+      password: "123Bob" + 9
+  };
+  arrUser[9] = {
+      name: "Bob" + 10,
+      username: "Burns" + 10,
+      password: "123Bob" + 10
+  };
+  console.log("Пароль користувача "+ arrUser[0].username + ": " + arrUser[0].password);
+  console.log("Пароль користувача "+ arrUser[1].username + ": " + arrUser[1].password);
+  console.log("Пароль користувача "+ arrUser[2].username + ": " + arrUser[2].password);
+  console.log("Пароль користувача "+ arrUser[3].username + ": " + arrUser[3].password);
+  console.log("Пароль користувача "+ arrUser[4].username + ": " + arrUser[4].password);
+  console.log("Пароль користувача "+ arrUser[5].username + ": " + arrUser[5].password);
+  console.log("Пароль користувача "+ arrUser[6].username + ": " + arrUser[6].password);
+  console.log("Пароль користувача "+ arrUser[7].username + ": " + arrUser[7].password);
+  console.log("Пароль користувача "+ arrUser[8].username + ": " + arrUser[8].password);
+  console.log("Пароль користувача "+ arrUser[9].username + ": " + arrUser[9].password);
 
 
   // Логічні розгалуження:
@@ -100,17 +155,31 @@
   console.log("Task 5");
   let x = 3
   if(x !== 0){
-      console.log("Вірно");
+      console.log(`Вірно ${x} не дорівнює нулю`);
   }
   else{
-      console.log("Невірно");
+      console.log(`Невірно ${x} дорівнює нулю`);
   }
   let a = 1
   if(a !== 0){
-      console.log("Вірно");
+      console.log(`Вірно ${a} не дорівнює нулю`);
   }
   else{
-      console.log("Невірно");
+      console.log(`Невірно ${a} дорівнює нулю`);
+  }
+  let a_2 = 0
+  if(a_2 !== 0){
+      console.log(`Вірно ${a_2} не дорівнює нулю`);
+  }
+  else{
+      console.log(`Невірно ${a_2} дорівнює нулю`);
+  }
+  let a_3 = -3
+  if(a_3 !== 0){
+      console.log(`Вірно ${a_3} не дорівнює нулю`);
+  }
+  else{
+      console.log(`Невірно ${a_3} дорівнює нулю`);
   }
 
   // - Дано змінну time яка рівна числу від 0 до 59. Потрібно написати код, який перевірить, до якої четверті години
@@ -207,10 +276,23 @@
     {title: 'FullStack', monthDuration: 7},
     {title: 'Frontend', monthDuration: 4}
   ];
-  for(let i = 0; i < coursesAndDurationArray.length; i++){
-    if (coursesAndDurationArray[i].monthDuration > 5){
+  if (coursesAndDurationArray[0].monthDuration > 5){
       console.log("Супер");
-    }
+  }
+  if (coursesAndDurationArray[1].monthDuration > 5){
+      console.log("Супер");
+  }
+  if (coursesAndDurationArray[2].monthDuration > 5){
+      console.log("Супер");
+  }
+  if (coursesAndDurationArray[3].monthDuration > 5){
+      console.log("Супер");
+  }
+  if (coursesAndDurationArray[4].monthDuration > 5){
+      console.log("Супер");
+  }
+  if (coursesAndDurationArray[5].monthDuration > 5){
+      console.log("Супер");
   }
 </script>
 </body>
