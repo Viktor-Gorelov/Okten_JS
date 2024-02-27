@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+  <style>
+    h2{
+      margin: 10px 0 5px 0;
+    }
+    h1{
+      color: grey;
+    }
+    .task_3{
+        width: 100%;
+        height: 40px;
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        flex-direction: row;
+    }
+    .task_3_h1{
+        margin: 5px;
+    }
+    .task_4{
+        width: 100%;
+        height: 90px;
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .task_4_h1{
+        margin: 8px;
+    }
+    li{
+      font-size: 30px;
+    }
+    .product-card{
+      height: 180px;
+    }
+    .product-image{
+      height: 140px;
+    }
+  </style>
+</head>
+<body>
+<script>
+  //- За допомогою циклу for і document.write() вивести 10 блоків div c довільним текстом всередині.
+  document.write("<h2>Task 1</h2>")
+  for (let i = 0; i < 10; i++) {
+    document.write(`<div>Lorem ipsum dolor sit amet.</div>`)
+  }
+
+  //- За допомогою циклу for і document.write() вивести 10 блоків div c довільним текстом і індексом всередині.
+  document.write("<h2>Task 2</h2>")
+  for (let i = 0; i < 10; i++) {
+    document.write(`<div>Elem${i + 1}</div>`)
+  }
+
+  //- За допомогою циклу while вивести в документ 20 блоків h1 c довільним текстом всередині.
+  document.write("<div class='task_3'>")
+  document.write("<h2>Task 3</h2>")
+  let a = 0;
+  while(a < 20){
+  a++
+    document.write(`<h1 class='task_3_h1'>Title</h1>`)
+  }
+  document.write("</div>")
+
+  //- За допомогою циклу while вивести в документ 20 блоків h1 c довільним текстом і індексом всередині.
+  document.write("<div class='task_4'>")
+  document.write("<h2>Task 4</h2>")
+  let b = 0;
+  while(b < 20){
+    b++
+    document.write(`<h1 class='task_4_h1'>Title${b}</h1>`)
+  }
+  document.write("</div>")
+
+  // Використовуючи данні з масиву, за допомоги document.write та циклу побудувати структуру по шаблону.
+  document.write("<h2>Task 5</h2>")
+  let listOfItems = ['html', 'css', 'javascript', 'mysql', 'mongodb', 'react', 'angular', 'node.js'];
+  document.write("<ul>")
+  for (let i = 0; i < listOfItems.length; i++) {
+    document.write(`<li>${listOfItems[i]}</li>`)
+  }
+  document.write("</ul>")
+
+  //Використовуючи данні з масиву, за допомоги document.write та циклу побудувати структуру по шаблону.
+  // Великими літерами прописанні властивості об'єкту які потрібно впровадити в шаблон.
+  document.write("<h2>Task 6</h2>")
+  let products = [
+    {
+      title: 'milk',
+      price: 22,
+      image: 'https://www.mcqueensdairies.co.uk/wp-content/uploads/2019/02/Mcqueens_1litre_whole_organic-300x300-3.jpg'
+    },
+    {
+      title: 'juice',
+      price: 27,
+      image: 'https://images-na.ssl-images-amazon.com/images/I/61jL2GCuKLL._SX679_PIbundle-24,TopRight,0,0_AA679SH20_.jpg'
+    },
+    {
+      title: 'tomato',
+      price: 47,
+      image: 'https://dictionary.cambridge.org/ru/images/thumb/tomato_noun_001_17860.jpg?version=5.0.74'
+    },
+    {
+      title: 'tea',
+      price: 15,
+      image: 'https://yogiproducts.com/wp-content/uploads/2009/03/YT-US-CAR-RelaxedMind-C23-202201-V2-3DFront_withGlow-300DPI-1.png'
+    },
+  ];
+  for (let i = 0; i < products.length; i++) {
+    document.write(`<div class="product-card">
+        <h3 class="product-title">${products[i].title}. Price - ${products[i].price}</h3>
+        <img src="${products[i].image}" alt="${products[i].title}" class="product-image">
+</div>`)
+  }
+
+  // є масив за допомоги циклу вивести:
+  console.log("Task 7.1");
+  let users = [
+    {name: 'vasya', age: 31, status: false},
+    {name: 'petya', age: 30, status: true},
+    {name: 'kolya', age: 29, status: true},
+    {name: 'olya', age: 28, status: false},
+    {name: 'max', age: 30, status: true},
+    {name: 'anya', age: 31, status: false},
+    {name: 'oleg', age: 28, status: false},
+    {name: 'andrey', age: 29, status: true},
+    {name: 'masha', age: 30, status: true},
+    {name: 'olya', age: 31, status: false},
+    {name: 'max', age: 31, status: true}
+  ];
+
+  // - користувачів зі статусом true
+  for (let i = 0; i < users.length; i++) {
+    if(users[i].status === true){
+      console.log(users[i]);
+    }
+  }
+
+  // - користувачів зі статусом false
+  console.log("Task 7.2");
+  for (let i = 0; i < users.length; i++) {
+    if(users[i].status === false){
+      console.log(users[i]);
+    }
+  }
+
+  // - користувачів які старші за 30 років
+  console.log("Task 7.3");
+  for (let i = 0; i < users.length; i++) {
+    if(users[i].age > 30){
+      console.log(users[i]);
+    }
+  }
+</script>
+</body>
+</html>
