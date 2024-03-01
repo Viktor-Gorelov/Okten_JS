@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    // ВСЕ ЗРОБИТИ СТРІЛОЧНИМИ ФУНКЦІЯМИ!
+    // - створити функцію яка обчислює та повертає площу прямокутника зі сторонами а і б.
+    console.log("Task 1")
+    const getRectangleArea = (a,b) => a * b;
+    console.log(getRectangleArea(2,5));
+
+    // - створити функцію яка обчислює та повертає площу кола з радіусом r.
+    console.log("Task 2");
+    const p = 3.14;
+    const getCircleArea = (r) => p * (r * r);
+    console.log(getCircleArea(2));
+
+    // - створити функцію яка обчислює та повертає площу циліндру висотою h, та радіутом r.
+    console.log("Task 3");
+    const getCylinderArea = (r,h) => 2 * p * r * h;
+    console.log(getCylinderArea(3,4));
+
+    // - створити функцію яка приймає масив та виводить кожен його елемент.
+    console.log("Task 4");
+    const getElemsArray = (arr) => {
+        for (let i = 0; i < arr.length; i++) {
+            console.log(arr[i]);
+        }
+    }
+    let array = [10,11,12];
+    getElemsArray(array);
+
+    // - створити функцію яка створює параграф з текстом. Текст задати через аргумент.
+    document.write("<h2>Task 5</h2>");
+    const createParagraph = (text) => {
+        document.write(`<h4>${text}</h4>`)
+    }
+    let phrase = "Good Day!";
+    createParagraph(phrase);
+
+    // - створити функцію яка створює ul з трьома елементами li. Текст li задати через аргумент всім однаковий.
+    document.write("<h2>Task 6</h2>");
+    const createList = (info) => {
+        document.write(`<ul>`)
+        document.write(`<li>${info}</li>`)
+        document.write(`<li>${info}</li>`)
+        document.write(`<li>${info}</li>`)
+        document.write(`</ul>`)
+    }
+    createList("Hi");
+
+    // - створити функцію яка створює ul з трьома елементами li. Текст li задати через аргумент всім однаковий.
+    // Кількість li визначається другим аргументом, який є числовим (тут використовувати цикл).
+    document.write("<h2>Task 7</h2>");
+    const createLists = (info,n) => {
+        document.write(`<ul>`)
+        for (let i = 0; i < n; i++) {
+            document.write(`<li>${info}</li>`)
+        }
+        document.write(`</ul>`)
+    }
+    createLists("Yay",3);
+
+    // - створити функцію яка приймає масив примітивних елементів (числа,стрінги,булеві), та будує для них список.
+    document.write("<h2>Task 8</h2>");
+    const createListArr =(arr) => {
+        document.write(`<ul>`)
+        for (let i = 0; i < arr.length; i++) {
+            document.write(`<li>${arr[i]}</li>`)
+        }
+        document.write(`</ul>`)
+    }
+    let listArray = [10,"text",true];
+    createListArr(listArray);
+
+    // - створити функцію яка приймає масив об'єктів з наступними полями id,name,age , та виводить їх в документ.
+    // Для кожного об'єкту окремий блок.
+    document.write("<h2>Task 9</h2>");
+    const showObj = (arr) => {
+        for (let i = 0; i < arr.length; i++) {
+            document.write(`<p> My id is ${arr[i].id}. My name is ${arr[i].name}. I am ${arr[i].age} years old.</p>`)
+        }
+    }
+    let arrayObjects = [
+        {id:0, name: "Bob", age: 21},
+        {id:1, name: "Andrey", age: 17},
+        {id:2, name: "Viktor", age: 23}
+    ];
+    showObj(arrayObjects);
+
+    // - створити функцію яка повертає найменьше число з масиву.
+    console.log("Task 10");
+    const returnMin = (arr) => {
+        let min = arr[0]
+        for (let i = 1; i < arr.length; i++) {
+            if(min > arr[i]){
+                min = arr[i];
+            }
+        }
+        return min
+    }
+    let findMin = [10,30,-4,85];
+    console.log(findMin)
+    console.log("Smallest number: "+ returnMin(findMin));
+
+    // - створити функцію sum(arr)яка приймає масив чисел, сумує значення елементів масиву та повертає його.
+    // Приклад sum([1,2,10]) //->13
+    console.log("Task 11");
+    const returnSum = (arr) => {
+        let sum = 0
+        for (let i = 0; i < arr.length; i++) {
+            sum += arr[i];
+        }
+        return sum
+    }
+    let findSum = [1, -4, 6, 10];
+    console.log(findSum)
+    console.log("Sum of numbers: "+ returnSum(findSum));
+
+    // - створити функцію swap(arr,index1,index2). Функція міняє місцями значення у відповідних індексах.
+    // Приклад  swap([11,22,33,44],0,1) //=> [22,11,33,44].
+    console.log("Task 12");
+    const swap = (arr,index1,index2) => {
+        let elem = arr[index1];
+        arr[index1] = arr[index2];
+        arr[index2] = elem
+        return arr;
+    }
+    let swapArr = [1,5,19,30]
+    console.log("Before " + swapArr);
+    console.log("After "+ swap(swapArr,0,1));
+
+    // - Написати функцію обміну валюти exchange(sumUAH,currencyValues,exchangeCurrency).
+    // Приклад exchange(10000,[{currency:'USD',value:40},{currency:'EUR',value:42}],'USD') // => 250.
+    console.log("Task 13");
+    const exchange = (sumUAH,currencyValues,exchangeCurrency) => {
+        for (let i = 0; i < currencyValues.length; i++) {
+            if(currencyValues[i].currency === exchangeCurrency){
+                return sumUAH / currencyValues[i].value
+            }
+        }
+    }
+    let currencyValues = [
+        {currency:'USD',value:40},
+        {currency:'EUR',value:42},
+        {currency:'PLN',value:9.7}
+    ]
+    console.log("Result exchange 10000 UAH to 40 USD: " + exchange(10000,currencyValues,'USD'));
+    console.log("Result exchange 10000 UAH to 42 EUR: " + exchange(10000,currencyValues,'EUR'));
+    console.log("Result exchange 10000 UAH to 9.7 PLN: " + exchange(10000,currencyValues,'PLN'));
+</script>
+</body>
+</html>
