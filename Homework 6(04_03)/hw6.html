@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+<script>
+  // - Знайти та вивести довижину настипних стрінгових значень.
+  console.log("Task 1 Вивести довжину:");
+  let str1 = "hello world";
+  let str2 = "lorem ipsum";
+  let str3 = "javascript is cool";
+  console.log(`Довжина стрінги ${str1}: ${str1.length}`);
+  console.log(`Довжина стрінги ${str2}: ${str2.length}`);
+  console.log(`Довжина стрінги ${str3}: ${str3.length}`);
+
+  // - Перевести до великого регістру наступні стрінгові значення.
+  console.log("Task 2 Перевести на великий регістр:");
+  console.log(`До: ${str1}, перехід на великий регістр: ${str1.toUpperCase()}`);
+  console.log(`До: ${str2}, перехід на великий регістр: ${str2.toUpperCase()}`);
+  console.log(`До: ${str3}, перехід на великий регістр: ${str3.toUpperCase()}`);
+
+  // - Перевести до нижнього регістру настипні стрінгові значення.
+  console.log("Task 3 Перевести на нижній регістр:");
+  let str1_3 = "HELLO WORLD";
+  let str2_3 = "LOREM IPSUM";
+  let str3_3 = "JAVASCRIPT IS COOL";
+  console.log(`До: ${str1_3}, перехід на нижній регістр: ${str1_3.toLowerCase()}`);
+  console.log(`До: ${str2_3}, перехід на нижній регістр: ${str2_3.toLowerCase()}`);
+  console.log(`До: ${str3_3}, перехід на нижній регістр: ${str3_3.toLowerCase()}`);
+
+  // - Є "брудна" стрінга let str = ' dirty string   ' . Почистити її від зайвих пробілів.
+  console.log("Task 4 Убрати зайві пробіли:");
+  let str_4 = ' dirty string   ';
+  console.log(
+          str_4.substring(str_4.indexOf(' ') + 1, str_4.lastIndexOf('   '))
+  )
+
+  //- Напишіть функцію stringToarray(str), яка перетворює рядок на масив слів.
+  console.log("Task 5 Перетворити рядок на масив:");
+  let str_5 = 'Ревуть воли як ясла повні';
+  function stringToarray(str){
+    return str.split(' ');
+  }
+  let arr = stringToarray(str_5);
+  console.log(str_5)
+  console.log(arr);
+
+  // - є масив чисел [10,8,-7,55,987,-1011,0,1050,0].
+  // За допомоги map  перетворити всі об'єкти в масиві на стрінгові.
+  console.log("Task 6 Перетворення об'єктів в масиві на стрінгові:");
+  let arr_6 = [10,8,-7,55,987,-1011,0,1050,0];
+  console.log(arr_6);
+  let map = arr_6.map((elem) => elem.toString())
+  console.log(map);
+
+  // - створити функцію sortNums(direction), яка прймає масив чисел, та сортує його від більшого до меньшого,
+  // або навпаки в залежності від значення аргументу direction.
+  console.log("Task 7 Сортування масіву в залежності від напрямку:");
+  let nums = [11,21,3];
+  console.log("Масив до сортування: ")
+  console.log(nums)
+  sortNums(nums,'ascending') // [3,11,21]
+  sortNums(nums,'descending') // [21,11,3]
+  function sortNums(arr,direction){
+    if (direction === "ascending"){
+      arr.sort((first, second)=>{
+        return first - second;
+      })
+    }
+    else {
+      arr.sort((first, second)=>{
+        return second - first;
+      })
+    }
+    console.log(direction.charAt(0).toUpperCase() + direction.substring(1))
+    console.log(arr);
+  }
+
+  // - є масив.
+  console.log("Task 8 Сортування масива за спаданням тривалості:");
+  console.log("Before")
+  console.log(createArray());
+  console.log("After")
+  // -- відсортувати його за спаданням за monthDuration.
+  function createArray(){
+    return [
+      {title: 'JavaScript Complex', monthDuration: 5},
+      {title: 'Java Complex', monthDuration: 6},
+      {title: 'Python Complex', monthDuration: 6},
+      {title: 'QA Complex', monthDuration: 4},
+      {title: 'FullStack', monthDuration: 7},
+      {title: 'Frontend', monthDuration: 4}
+    ];
+  }
+  let sort = createArray().sort((first, second) => {
+    return second.monthDuration - first.monthDuration;
+  })
+  console.log(sort);
+
+  // -- відфільтрувати , залишивши тільки курси з тривалістю більше 5 місяців.
+  console.log("Task 9 курси тривалістю більше 5 місяців:");
+  let filter = createArray().filter((item) => item.monthDuration > 5);
+  console.log(filter);
+
+  // -- за допомоги map перетворити кожен елемент на наступний тип {id,title,monthDuration}.
+  console.log("Task 10 додали до курсів властивість id:");
+  let map_10 = createArray().map((elem, index) => ({
+    id: index + 1, title: elem.title, monthDuration: elem.monthDuration
+  }))
+  console.log(map_10);
+
+  // описати колоду карт (від 6 до туза без джокерів).
+  // {
+  //     cardSuit: '', // 'spade', 'diamond','heart', 'clubs'
+  //     value: '', // '6'-'10', 'ace','jack','queen','king','joker'
+  //     color:'', // 'red','black'
+  // }
+  console.log("Task 11 Створити колоду карт:");
+  let deck = [];
+  function addPackToDeck(cardSuit, deck) {
+    let color = "";
+    if (cardSuit === "spade" || cardSuit === "clubs") {
+      color = "black";
+    } else if (cardSuit === "diamond" || cardSuit === "heart") {
+      color = "red";
+    }
+    for (let i = 6; i <= 10; i++) {
+      deck.push({cardSuit: cardSuit, value: i, color: color})
+    }
+    deck.push({cardSuit: cardSuit, value: "jack", color: color})
+    deck.push({cardSuit: cardSuit, value: "queen", color: color})
+    deck.push({cardSuit: cardSuit, value: "king", color: color})
+    deck.push({cardSuit: cardSuit, value: "ace", color: color})
+  }
+  addPackToDeck("spade", deck);
+  addPackToDeck("clubs", deck);
+  addPackToDeck("diamond", deck);
+  addPackToDeck("heart", deck);
+  console.log(deck);
+
+
+  // - знайти піковий туз.
+  console.log("Task 12 Знайти піковий туз:");
+  for (let i = 0; i < deck.length; i++) {
+    if (deck[i].cardSuit === "spade" && deck[i].value === "ace"){
+      console.log(deck[i]);
+      break;
+    }
+  }
+
+  // - всі шістки.
+  console.log("Task 13 Знайти шістки:");
+  for (let i = 0; i < deck.length; i++) {
+    if (deck[i].value === 6){
+      console.log(deck[i]);
+    }
+  }
+
+  // - всі червоні карти.
+  console.log("Task 14 Знайти всі червоні карти:");
+  for (let i = 0; i < deck.length; i++) {
+    if (deck[i].color === "red"){
+      console.log(deck[i]);
+    }
+  }
+
+  // - всі буби.
+  console.log("Task 15 Знайти всі бубни:");
+  for (let i = 0; i < deck.length; i++) {
+    if (deck[i].cardSuit === "diamond"){
+      console.log(deck[i]);
+    }
+  }
+
+  // - всі трефи від 9 та більше.
+  console.log("Task 16 Знайти всі трефи від 9 та більше:");
+  for (let i = 0; i < deck.length; i++) {
+    if (deck[i].cardSuit === "clubs" && (deck[i].value >= 9 || deck[i].value === "jack" ||
+            deck[i].value === "queen" || deck[i].value === "king" || deck[i].value === "ace")){
+      console.log(deck[i]);
+    }
+  }
+
+  //Взяти описану колоду карт, та за допомоги reduce упакувати всі карти по "мастях" в об'єкт.
+  console.log("Task 17 Упакувати всі карти по мастях:");
+  // {
+  //     spades:[],
+  //     diamonds:[],
+  //     hearts:[],
+  //     clubs:[]
+  // }
+  let reduce = deck.reduce(
+          (accumulator, card) =>{
+            if(card.cardSuit === "spade"){
+              accumulator.spades.push(card);
+            }
+            if(card.cardSuit === "diamond"){
+              accumulator.diamonds.push(card);
+            }
+            if(card.cardSuit === "heart"){
+              accumulator.hearts.push(card);
+            }
+            if(card.cardSuit === "clubs"){
+              accumulator.clubs.push(card);
+            }
+            return accumulator
+          },
+          {
+            spades:[],
+            diamonds:[],
+            hearts:[],
+            clubs:[]
+          }
+  );
+  console.log(reduce);
+
+  // взяти з arrays.js (який лежить в папці 2023 plan) масив coursesArray.
+  let coursesArray = [
+    {
+      title: 'JavaScript Complex',
+      monthDuration: 5,
+      hourDuration: 909,
+      modules: ['html', 'css', 'js', 'mysql', 'mongodb', 'react', 'angular', 'aws', 'docker', 'git', 'node.js']
+    },
+    {
+      title: 'Java Complex',
+      monthDuration: 6,
+      hourDuration: 909,
+      modules: ['html',
+        'css',
+        'js',
+        'mysql',
+        'mongodb',
+        'angular',
+        'aws',
+        'docker',
+        'git',
+        'java core',
+        'java advanced']
+    },
+    {
+      title: 'Python Complex',
+      monthDuration: 6,
+      hourDuration: 909,
+      modules: ['html',
+        'css',
+        'js',
+        'mysql',
+        'mongodb',
+        'angular',
+        'aws',
+        'docker',
+        'python core',
+        'python advanced']
+    },
+    {
+      title: 'QA Complex',
+      monthDuration: 4,
+      hourDuration: 909,
+      modules: ['html', 'css', 'js', 'mysql', 'mongodb', 'git', 'QA/QC']
+    },
+    {
+      title: 'FullStack',
+      monthDuration: 7,
+      hourDuration: 909,
+      modules: ['html',
+        'css',
+        'js',
+        'mysql',
+        'mongodb',
+        'react',
+        'angular',
+        'aws',
+        'docker',
+        'git',
+        'node.js',
+        'python',
+        'java']
+    },
+    {
+      title: 'Frontend',
+      monthDuration: 4,
+      hourDuration: 909,
+      modules: ['html', 'css', 'js', 'mysql', 'mongodb', 'react', 'angular', 'aws', 'docker', 'git', 'sass']
+    }
+  ];
+  // --написати пошук всіх об'єктів, в який в modules є sass.
+  console.log("Task 18 Знайти об'єкти в яких в modules є sass:");
+  for (let i = 0; i < coursesArray.length; i++) {
+    for (let j = 0; j < coursesArray[i].modules.length; j++) {
+      if (coursesArray[i].modules[j] === 'sass'){
+        console.log(coursesArray[i]);
+      }
+    }
+  }
+
+  //--написати пошук всіх об'єктів, в який в modules є docker
+  console.log("Task 19 Знайти об'єкти в яких в modules є docker:");
+  for (let i = 0; i < coursesArray.length; i++) {
+    for (let j = 0; j < coursesArray[i].modules.length; j++) {
+      if (coursesArray[i].modules[j] === 'docker'){
+        console.log(coursesArray[i]);
+      }
+    }
+  }
+</script>
+</body>
+</html>
