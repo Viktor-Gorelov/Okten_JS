@@ -147,45 +147,29 @@
 
   // - знайти піковий туз.
   console.log("Task 12 Знайти піковий туз:");
-  for (let i = 0; i < deck.length; i++) {
-    if (deck[i].cardSuit === "spade" && deck[i].value === "ace"){
-      console.log(deck[i]);
-      break;
-    }
-  }
+  let filter_12 = deck.filter((card) => card.cardSuit === "spade" && card.value === "ace")
+  console.log(filter_12)
 
   // - всі шістки.
   console.log("Task 13 Знайти шістки:");
-  for (let i = 0; i < deck.length; i++) {
-    if (deck[i].value === 6){
-      console.log(deck[i]);
-    }
-  }
+  let filter_13 = deck.filter((card) => card.value === 6)
+  console.log(filter_13)
 
   // - всі червоні карти.
   console.log("Task 14 Знайти всі червоні карти:");
-  for (let i = 0; i < deck.length; i++) {
-    if (deck[i].color === "red"){
-      console.log(deck[i]);
-    }
-  }
+  let filter_14 = deck.filter((card) => card.color === "red")
+  console.log(filter_14)
 
   // - всі буби.
   console.log("Task 15 Знайти всі бубни:");
-  for (let i = 0; i < deck.length; i++) {
-    if (deck[i].cardSuit === "diamond"){
-      console.log(deck[i]);
-    }
-  }
+  let filter_15 = deck.filter((card) => card.cardSuit === "diamond")
+  console.log(filter_15)
 
   // - всі трефи від 9 та більше.
   console.log("Task 16 Знайти всі трефи від 9 та більше:");
-  for (let i = 0; i < deck.length; i++) {
-    if (deck[i].cardSuit === "clubs" && (deck[i].value >= 9 || deck[i].value === "jack" ||
-            deck[i].value === "queen" || deck[i].value === "king" || deck[i].value === "ace")){
-      console.log(deck[i]);
-    }
-  }
+  let filter_16 = deck.filter((card) => card.cardSuit === "clubs" && (card.value >= 9 || card.value === "jack" ||
+          card.value === "queen" || card.value === "king" || card.value === "ace"))
+  console.log(filter_16)
 
   //Взяти описану колоду карт, та за допомоги reduce упакувати всі карти по "мастях" в об'єкт.
   console.log("Task 17 Упакувати всі карти по мастях:");
@@ -292,23 +276,13 @@
   ];
   // --написати пошук всіх об'єктів, в який в modules є sass.
   console.log("Task 18 Знайти об'єкти в яких в modules є sass:");
-  for (let i = 0; i < coursesArray.length; i++) {
-    for (let j = 0; j < coursesArray[i].modules.length; j++) {
-      if (coursesArray[i].modules[j] === 'sass'){
-        console.log(coursesArray[i]);
-      }
-    }
-  }
+  let filter_18 = coursesArray.filter((item) => item.modules.includes('sass'))
+  console.log(filter_18);
 
   //--написати пошук всіх об'єктів, в який в modules є docker
   console.log("Task 19 Знайти об'єкти в яких в modules є docker:");
-  for (let i = 0; i < coursesArray.length; i++) {
-    for (let j = 0; j < coursesArray[i].modules.length; j++) {
-      if (coursesArray[i].modules[j] === 'docker'){
-        console.log(coursesArray[i]);
-      }
-    }
-  }
+  let filter_19 = coursesArray.filter((item) => item.modules.includes('docker'))
+  console.log(filter_19);
 </script>
 </body>
 </html>
