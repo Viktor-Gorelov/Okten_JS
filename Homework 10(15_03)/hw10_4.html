@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<div id = "elem"></div>
+
+<script>
+    // зробити масив на 100 об'єктів та дві кнопки prev next.
+    // при завантажені сторінки з'являються перші 10 об'єктів.
+    // При натисканні next виводяться настпні 10 об'єктів.
+    // При натисканні prev виводяться попередні 10 об'єктів.
+
+    let array = [];
+    for (let i = 0; i < 100; i++) {
+        array.push({name: "Andrey" + i, surname: "Andreys" + i })
+    }
+    console.log(array);
+    let elems = document.getElementById("elem");
+    let first = 0;
+    let second = 10;
+    createTen(array, first, second);
+    function createTen(array, first, second){
+        for (let i = first; i < second; i++) {
+            let div = document.createElement("div");
+            div.setAttribute("style","display: flex")
+            let h3_name = document.createElement("h3");
+            h3_name.setAttribute("style", "margin: 20px")
+            h3_name.innerText = "Ім'я "+ array[i].name
+            let h3_sur = document.createElement("h3");
+            h3_sur.setAttribute("style", "margin: 20px")
+            h3_sur.innerText = "Прізвище " + array[i].surname;
+            div.append(h3_name, h3_sur);
+            elems.appendChild(div);
+        }
+    }
+    function next() {
+        if(first === 90){
+            return 0;
+        }else {
+            elems.innerText = "";
+            createTen(array,first + 10,second + 10);
+            first+= 10;
+            second+= 10;
+        }
+    }
+    function prev() {
+        if (first === 0){
+            return 0;
+        }
+        else {
+            elems.innerText = "";
+            createTen(array, first - 10, second - 10);
+            first-= 10;
+            second-= 10;
+        }
+    }
+</script>
+<div id = "buttons">
+    <button onclick="next()">Next</button>
+    <button onclick="prev()">Prev</button>
+</div>
+</body>
+</html>

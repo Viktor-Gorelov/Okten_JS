@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <form action= "" name='form1'>
+        <input type="text" placeholder="username" name="username">
+        <input type="text" placeholder="surname" name="surname">
+        <input type="text" placeholder="age" name="age">
+        <button>send username</button>
+    </form>
+
+<script>
+    //Створити форму з трьома полями для name,surname,age та кнопкою.
+    // При натисканні на кнопку зчитати данні з полів, та вивести об'єкт в документ.
+    // Іншими словами : заповниои форму, натиснули кнопку, під формою з'явився блок з вашим об'єктом
+    let f1 = document.forms['form1'];
+    console.log(f1);
+    f1.onsubmit = function (e)
+    {
+        e.preventDefault();
+        let div = document.createElement('div');
+        document.body.appendChild(div);
+        let h3_name = document.createElement('h3');
+        h3_name.innerText = "Ім'я користувача: " + f1.getElementsByTagName('input')[0].value;
+        console.log(h3_name);
+        let h3_sur = document.createElement('h3');
+        h3_sur.innerText = "Прізвище користувача: " + f1.getElementsByTagName('input')[1].value;
+        let h3_age = document.createElement('h3');
+        h3_age.innerText = "Вік користувача: " +f1.getElementsByTagName('input')[2].value;
+        div.append(h3_name,h3_sur,h3_age);
+        console.log(div);
+    }
+
+</script>
+</body>
+</html>

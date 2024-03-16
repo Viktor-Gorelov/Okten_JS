@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<script>
+    // Є ще сторінка sessions.html (назва довільна), при відвідуванні якої потрібно відмалювати всю інформацію
+    // про відвідування сторінки index.html. Інфу НЕ виводити в консоль, а побудувати дом структуру під кожну сессію
+
+    let sessions = [];
+    if(localStorage.getItem('sessions') !== null){
+        sessions = JSON.parse(localStorage.getItem('sessions'));
+    }
+    for (const session of sessions){
+        let h2 = document.createElement('h2');
+        h2.innerText = "Сессія номер: " +(sessions.indexOf(session) + 1).toString();
+        document.body.appendChild(h2);
+        let div = document.createElement('div');
+        div.setAttribute("style","display:flex" )
+        let h3_date = document.createElement('h3');
+        h3_date.innerText = "Дата: " + session.date;
+        h3_date.setAttribute("style", "margin: 10px")
+        let h3_time = document.createElement('h3');
+        h3_time.innerText = "Час: " + session.time;
+        h3_time.setAttribute("style", "margin: 10px")
+        div.append(h3_date,h3_time);
+        document.body.appendChild(div);
+    }
+</script>
+</body>
+</html>

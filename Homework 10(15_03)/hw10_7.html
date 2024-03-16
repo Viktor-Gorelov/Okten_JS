@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <input type="number" placeholder="number of row" name="row">
+    <input type="number" placeholder="number of cell" name="cell">
+    <input type="text" placeholder="cell contents" name="content">
+    <button onclick="createTable()">Create Table</button>
+    <div id ="result"></div>
+    <script>
+    // *** Створити 3 інпута та кнопку. Один визначає кількість рядків, другий - кількість ячеєк, третій вмиіст ячеєк.
+    // При натисканні кнопки, вся ця інформація зчитується і формується табличка, з відповідним вмістом.
+    // (Додатковачастина для завдання)
+    function createTable(){
+        let row = document.getElementsByTagName("input")[0].value;
+        let cell = document.getElementsByTagName("input")[1].value;
+        let content = document.getElementsByTagName("input")[2].value;
+        let res = document.getElementById("result");
+        res.innerText = "";
+        for (let i = 0; i < row; i++) {
+            let div = document.createElement("div");
+            div.setAttribute("style", "display:flex");
+            for (let j = 0; j < cell; j++) {
+                let h3 = document.createElement('h3');
+                h3.innerText = content;
+                h3.setAttribute("style","margin:10px")
+                div.appendChild(h3);
+            }
+            res.appendChild(div);
+        }
+    }
+    </script>
+</body>
+</html>
