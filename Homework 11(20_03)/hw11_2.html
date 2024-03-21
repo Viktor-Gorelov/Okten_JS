@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        h4{
+            margin: 3px;
+        }
+    </style>
+</head>
+<body>
+<script>
+    // - взяти https://dummyjson.com/docs/recipes та вивести інформацію про всі рецепти.
+    // Інгредієнти повинні бути список під час відображення.
+    fetch('https://dummyjson.com/recipes')
+        .then(res => res.json())
+        .then((allRecipes) => {
+            console.log(allRecipes);
+            let {recipes} = allRecipes;
+            console.log(recipes);
+            for (const recipe of recipes) {
+                let blockRecipe = document.createElement('div');
+                blockRecipe.setAttribute('style', 'display:flex; border: 1px solid black')
+                let imgRecipe = document.createElement('div');
+                imgRecipe.setAttribute('style','display: flex; flex-direction: column; justify-content: center; align-items: center')
+                let img = document.createElement('img');
+                img.src = recipe.image;
+                img.setAttribute('style','height: 400px; width: 400px')
+                imgRecipe.appendChild(img);
+                blockRecipe.appendChild(imgRecipe);
+                let recipeInfo = document.createElement('div');
+                recipeInfo.setAttribute('style','margin-left: 40px')
+                let recipeName = document.createElement('h4');
+                recipeName.innerText = "Name: " + recipe.name;
+                let recipeId = document.createElement('h4');
+                recipeId.innerText = "Id: " + recipe.id;
+                let recipeListIng = document.createElement('h4')
+                recipeListIng.innerText = "Ingredients: ";
+                recipeInfo.append(recipeName, recipeId,recipeListIng);
+                let ingredients = recipe.ingredients;
+                let listIngredient = document.createElement('ul');
+                for (const ingredient of ingredients) {
+                    let ing = document.createElement('li');
+                    ing.innerText = `${ingredient}`;
+                    listIngredient.appendChild(ing);
+                    recipeInfo.appendChild(listIngredient);
+                }
+                let recipeListIns = document.createElement('h4')
+                recipeListIns.innerText = "Instructions: ";
+                recipeInfo.appendChild(recipeListIns);
+                let instructions = recipe.instructions;
+                let listInstructions = document.createElement('ol')
+                for (const instruction of instructions) {
+                    let ins = document.createElement('li');
+                    ins.innerText = `${instruction}`;
+                    listInstructions.appendChild(ins);
+                    recipeInfo.appendChild(listInstructions);
+                }
+                let preptime = document.createElement('h4');
+                preptime.innerText = "Prepare time: " + recipe.prepTimeMinutes + " minutes";
+                recipeInfo.appendChild(preptime);
+                let cooktime = document.createElement('h4');
+                cooktime.innerText = "Cook time: " + recipe.cookTimeMinutes + " minutes";
+                recipeInfo.appendChild(cooktime);
+                let serving = document.createElement('h4');
+                serving.innerText = "Servings: " + recipe.servings;
+                recipeInfo.appendChild(serving);
+                let difficulty = document.createElement('h4');
+                difficulty.innerText = "Difficulty: " + recipe.difficulty;
+                recipeInfo.appendChild(difficulty);
+                let cuisine = document.createElement('h4');
+                cuisine.innerText = "Cuisine: " + recipe.cuisine;
+                recipeInfo.appendChild(cuisine);
+                let caloriesPerServings = document.createElement('h4');
+                caloriesPerServings.innerText = "Calories: " + recipe.caloriesPerServing;
+                recipeInfo.appendChild(caloriesPerServings);
+                let recipeListTag = document.createElement('h4')
+                recipeListTag.innerText = "Tags: ";
+                recipeInfo.appendChild(recipeListTag);
+                let tags = recipe.tags;
+                let listTags = document.createElement('ul');
+                for (const elemtag of tags) {
+                    let tag = document.createElement('li');
+                    tag.innerText = `${elemtag}`;
+                    listTags.appendChild(tag);
+                    recipeInfo.appendChild(listTags);
+                }
+                let userIds = document.createElement('h4');
+                userIds.innerText = "UserId: " + recipe.userId;
+                recipeInfo.appendChild(userIds);
+                let ratings = document.createElement('h4');
+                ratings.innerText = "Rating: " + recipe.rating;
+                recipeInfo.appendChild(ratings);
+                let reviewCounts = document.createElement('h4');
+                reviewCounts.innerText = "Reviews: " + recipe.reviewCount;
+                recipeInfo.appendChild(reviewCounts);
+                let recipeListType = document.createElement('h4');
+                recipeListType.innerText = "Meal Type: "
+                recipeInfo.appendChild(recipeListType);
+                let types = recipe.mealType;
+                let listType = document.createElement('ul');
+                for (const type of types) {
+                    let typeMeal = document.createElement('li');
+                    typeMeal.innerText = `${type}`;
+                    listType.appendChild(typeMeal);
+                    recipeInfo.appendChild(listType);
+                }
+                blockRecipe.appendChild(recipeInfo);
+                document.body.appendChild(blockRecipe);
+            }
+        });
+
+</script>
+</body>
+</html>
